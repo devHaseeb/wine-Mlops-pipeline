@@ -1,11 +1,11 @@
-.PHONY: install lint test train clean
+.PHONY: install lint test train evaluate run clean
 
 install:
 	python -m pip install --upgrade pip
 	python -m pip install -r requirements.txt
 
 lint:
-	flake8 src/ tests/ --max-line-length=100
+	python -m flake8 src/ tests/ --max-line-length=100
 
 test:
 	python -m pytest tests/ -v
@@ -13,7 +13,13 @@ test:
 train:
 	python -m src.train
 
+evaluate:
+	python -m src.evaluate
+
+run: install lint test train evaluate
+
 clean:
 	find . -type f -name "*.pyc" -delete
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 	find . -type d -name ".pytest_cache" -exec rm -rf {} +
+
