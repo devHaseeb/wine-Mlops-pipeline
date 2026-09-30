@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+
+# Pytest
+.pytest_cache/
+
+# MLflow
+mlruns/
+mlartifacts/
+mlflow.db
+
+# Temporary files
+*.tmp
+*.log
+
+# Model artifacts
+*.pkl
+*.joblib
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
